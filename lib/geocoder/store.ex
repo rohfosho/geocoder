@@ -91,4 +91,6 @@ defmodule Geocoder.Store do
     |> String.trim()
     |> :base64.encode()
   end
+
+  defp encode(_, _), do: nil
 end
