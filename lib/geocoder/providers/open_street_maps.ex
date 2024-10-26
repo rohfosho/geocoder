@@ -135,6 +135,8 @@ defmodule Geocoder.Providers.OpenStreetMaps do
     |> Enum.reduce(location, reduce)
   end
 
+  defp geocode_location(_), do: %Geocoder.Location{}
+
   defp request_all(path, params, opts) do
     request = %{
       method: :get,
