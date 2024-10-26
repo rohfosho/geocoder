@@ -80,6 +80,7 @@ defmodule Geocoder.Store do
 
   defp encode(location, opt \\ nil)
 
+  defp encode({nil, nil}, _), do: nil
   defp encode({lat, lon}, precision) do
     Geohash.encode(:erlang.float(lat), :erlang.float(lon), precision)
   end
@@ -91,6 +92,4 @@ defmodule Geocoder.Store do
     |> String.trim()
     |> :base64.encode()
   end
-
-  defp encode(_, _), do: nil
 end
